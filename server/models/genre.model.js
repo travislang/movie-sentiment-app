@@ -4,23 +4,20 @@ const sequelize = require('../modules/orm.config');
 const config = {
     freezeTableName: true,
     underscored: true, // use snake_case not camelCase for attributes
+    
 }
 
-const Artist = sequelize.define('artist', {
+const Genre = sequelize.define('genre', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
-    name: {
+    genre_name: {
         type: Sequelize.STRING,
-        allowNull: false
-    },
-    favorite: {
-        type: Sequelize.BOOLEAN,
         allowNull: false,
-        defaultValue: false
-    }
+    },
 }, config);
 
-module.exports = Artist;
+
+module.exports = Genre;
