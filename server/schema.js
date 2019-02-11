@@ -9,6 +9,7 @@ module.exports = gql`
 
     type Movie {
         name: String!
+        id: Int!
         posterPath: String!
         genres: [Genre!]!
         overview: String!
@@ -16,9 +17,10 @@ module.exports = gql`
     }
 
     type Query {
-        genre(id: Int!): Genre!
+        genre(movieId: Int!): Genre!
         getGenres: [Genre!]!
         getPopularMovies: [Movie!]!
+        movie(id: Int!): Movie!
     }
 `;
 
