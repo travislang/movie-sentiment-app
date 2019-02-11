@@ -74,7 +74,7 @@ module.exports = {
         movie: (parent, args, context, info) => {
             return axios.get(`https://api.themoviedb.org/3/movie/${args.movieId}?api_key=${process.env.TMDBAPI}&language=en-US`)
                 .then(response => {
-                    return response.data.results
+                    return response.data
                 })
         }
     },

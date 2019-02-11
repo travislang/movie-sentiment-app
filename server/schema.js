@@ -20,7 +20,7 @@ module.exports = gql`
         genre(movieId: Int!): Genre!
         getGenres: [Genre!]!
         getPopularMovies: [Movie!]!
-        movie(id: Int!): Movie!
+        movie(movieId: Int!): Movie!
     }
 `;
 
