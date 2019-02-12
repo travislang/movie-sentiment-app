@@ -66,15 +66,21 @@ module.exports = {
             })
         },
         getPopularMovies: (parent, args, context, info) => {
-            return axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.TMDBAPI}&language=en-US`)
+            return axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.TMDBAPI}&language=en-US&page=${args.page}`)
                 .then(response => {
                     return response.data.results
                 })
         },
-        movie: (parent, args, context, info) => {
+        movieDetails: (parent, args, context, info) => {
             return axios.get(`https://api.themoviedb.org/3/movie/${args.movieId}?api_key=${process.env.TMDBAPI}&language=en-US`)
                 .then(response => {
                     return response.data
+                })
+        },
+        searchMovie: (parent, args, context, info) => {
+            return axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.TMDBAPI}&language=en-US&query=${args.title}&page=1&include_adult=false`)
+                .then(response => {
+                    return response.data.results
                 })
         }
     },
